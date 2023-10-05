@@ -1,0 +1,59 @@
+:root {
+    --fg: white;
+    --bg: #666
+}
+
+
+body {
+    margin: 0;
+}
+
+
+body h1 {
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+}
+
+main {
+
+
+    background: var(--bg);
+    height: 100%;
+    padding: 4rem;
+    box-sizing: border-box;
+
+}
+
+main form {
+
+    padding: 4rem;
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+
+    place-items: center;
+
+    height: 100%;
+    box-sizing: border-box;
+
+
+
+}
+
+main form div,
+main form button,
+main form select {
+    height: 100%;
+    width: 100%;
+}
+
+
+#collapseOne {
+    overflow-x: scroll;
+}
+
+.table__data {
+    overflow-x: scroll;
+}

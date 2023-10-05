@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="http://www.argentaguas.com.ar/images/certificaciones/apra.jpg"
+            type="image/x-icon" />
+        <link rel="stylesheet" href="./asset/css/style.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous" />
+        <title>Riachuelo Front Uploader</title>
+    </head>
+    <body>
+        <main id="app" class="container-fluid">
+            <center>
+                <div class="row container-fluid">
+                    <div class="accordion container-xl" id="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    Sample Data Recientemente Cargada
+                                </button>
+                            </h2>
+                            <div
+                                id="collapseOne"
+                                class="accordion-collapse collapse show"
+                                data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <div class="table__data">
+                                        <table
+                                            class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th
+                                                        scope="col"
+                                                        v-for="col in cols">
+                                                        {{col.name_display}}
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="row in data">
+                                                    <th v-for="item in row">
+                                                        {{item}}
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <h1>Formulario de carga de Riachuelo</h1>
+
+                <hr />
+                <form id="form-data">
+                    <div>
+                        <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            name="dataset">
+                            <option value="Puente La Noria" selected>
+                                Puente La Noria
+                            </option>
+                            <option value="Puente Alsina">Puente Alsina</option>
+                            <option value="Desembocadura">Desembocadura</option>
+                        </select>
+                    </div>
+                    <div v-for="col in cols" class="form-floating">
+                        <input
+                            v-if="col.col_name != 'dataset'"
+                            id="floatingInputValue"
+                            class="form-control"
+                            :type="col.type"
+                            :placeholder="col.medida"
+                            :name="col.col_name" />
+                        <label
+                            v-if="col.col_name != 'dataset'"
+                            for="floatingInputValue"
+                            >{{col.name_display.toLowerCase()}}</label
+                        >
+                    </div>
+                    <button id="loadData" type="submit" class="btn btn-dark">
+                        Cargar Datos
+                    </button>
+
+                    <button id="clearData" type="reset" class="btn btn-danger">
+                        Limpiar Datos
+                    </button>
+                </form>
+
+                <div class="accordion container-xl" id="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne"
+                                aria-expanded="false"
+                                aria-controls="collapseOne">
+                                [DEV] Calidad de Agua - Cuenca Matanza Riachuelo
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseOne"
+                            class="accordion-collapse collapse show"
+                            data-bs-parent="#accordion">
+                            <div class="accordion-body">
+                                <iframe
+                                    title="[DEV] Calidad de Agua - Cuenca Matanza Riachuelo"
+                                    width="1140"
+                                    height="541.25"
+                                    src="https://app.powerbi.com/reportEmbed?reportId=915c64a1-7e2d-429b-a74a-afa27a65133c&autoAuth=true&ctid=2377472e-8004-4648-8456-bd9687afa150"
+                                    frameborder="0"
+                                    allowfullscreen="true"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </main>
+        <footer></footer>
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./asset/js/index.js"></script>
+</html>
